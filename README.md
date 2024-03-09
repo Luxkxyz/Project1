@@ -18,15 +18,16 @@
 
 classdiagram:
 
+```mermaid
 classDiagram
-    class QueueItem {
+    class LaundryQueueItem {
         + string CustomerName
         + int ClothesCount
         + bool IsMachineFull
         + LaundryQueueItem(string customerName, int clothesCount)
     }
 
-    class washingMachine {
+    class LaundryMachine {
         + int MachineNumber
         + bool IsAvailable
         + Label StatusLabel
@@ -35,7 +36,7 @@ classDiagram
         + LaundryMachine(int machineNumber)
     }
 
-    class Queue {
+    class LaundryQueue {
         - Queue<LaundryQueueItem> queue
         + void Enqueue(LaundryQueueItem item)
         + LaundryQueueItem Dequeue()
@@ -43,5 +44,6 @@ classDiagram
         + LaundryQueueItem Peek()
     }
 
-    QueueItem --* LaundryQueue
-    QueueItem "1" --* "3" LaundryMachine : Uses
+    LaundryQueueItem --* LaundryQueue
+    LaundryQueueItem "1" --* "3" LaundryMachine : Uses
+```

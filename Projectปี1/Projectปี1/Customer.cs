@@ -1,22 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CsvHelper;
 
 namespace Projectปี1
 {
+
     public class Customer
     {
         public string Name { get; }
-    
+
 
         public int Time { get; private set; }
 
         public Customer(string name, int time)
         {
             Name = name;
-           
+
             Time = time;
         }
 
@@ -25,5 +28,8 @@ namespace Projectปี1
             return $"Customer: {Name},  time {Time}";
         }
     }
+   
+
+
 
 }

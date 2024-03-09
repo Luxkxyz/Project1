@@ -1,14 +1,21 @@
 using System.Drawing.Imaging;
+using System.Globalization;
 using System.Reflection.PortableExecutable;
 using System.Windows.Forms;
+using CsvHelper;
+using CsvHelper.Configuration;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Projectปี1
 {
+
     public partial class Form1 : Form
     {
+        
         private Shop Shop;
         private Queue Queue;
         string empty = "ว่าง";
+        
         public Form1()
         {
             InitializeComponent();
@@ -20,7 +27,7 @@ namespace Projectปี1
         private void เพิ่มลูกค้า_Click(object sender, EventArgs e)
         {
             string name = ชื่อลูกค้า.Text;
-           
+
             int Time = (int)time_numericUpDown.Value;
             Customer newCustomer = new Customer(name, Time);
             Queue.EnqueueCustomer(newCustomer);
@@ -96,6 +103,7 @@ namespace Projectปี1
 
         private void Clear_Click(object sender, EventArgs e)
         {
+            ExportQueueToCsv();
             Queue.Customers.Clear();
             UpdateQueueListBox();
             Shop.ClearStatusOfMachines();
@@ -130,5 +138,34 @@ namespace Projectปี1
         {
             Shop.ClearStatusOfMachine("Machine 6");
         }
+
+        private void ReadCsv_Click(object sender, EventArgs e)
+        {
+          
+        
+            using (var reader = new StreamReader(@"C:\Users\User\source\repos\Project1\Projectปี1\Projectปี1\bin\Debug\net8.0-windows"))
+            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            {
+                var records = csv.GetRecords<ResultDATA>().ToList();
+               
+            }
+        
+        }
+        
+        private void SaveCsv_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ExportQueueToCsv()
+        {
+            var config = new CsvConfiguration(new System.Globalization.CultureInfo("en-US"));
+            using (var writer = new StreamWriter("customers_queue.csv"))
+            using (var csv = new CsvWriter(writer, config))
+            {
+                csv.WriteRecords(Queue.Customers);
+            }
+        }
     }
+
 }

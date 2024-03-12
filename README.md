@@ -38,31 +38,75 @@ classdiagram:
 
 ```mermaid
 classDiagram
-    class QueueItem {
-        + string CustomerName
-        + bool IsMachineFull
-        + LaundryQueueItem(string customerName, int clothesCount)
+    class Form1 {
+        -Shop Shop
+        -Queue Queue
+        -Label empty
+        +void เพิ่มลูกค้า_Click(object sender, EventArgs e)
+        +void UpdateQueueListBox()
+        +void addwashing_machine()
+        +void next_customer_Click(object sender, EventArgs e)
+        +void Clear_Click(object sender, EventArgs e)
+        +void clear2_Click(object sender, EventArgs e)
+        +void clear1_Click(object sender, EventArgs e)
+        +void clear3_Click(object sender, EventArgs e)
+        +void clear4_Click(object sender, EventArgs e)
+        +void clear5_Click(object sender, EventArgs e)
+        +void clear6_Click(object sender, EventArgs e)
+        +void ReadCsv_Click(object sender, EventArgs e)
+        +void SaveCsv_Click(object sender, EventArgs e)
+        +void ExportQueueToCsv()
+        +void Form1_Load(object sender, EventArgs e)
     }
 
-    class Machine {
-        + int MachineNumber
-        + bool IsAvailable
-        + Label StatusLabel
-        + void StartLaundry(LaundryQueueItem queueItem)
-        + void FinishLaundry()
-        + LaundryMachine(int machineNumber)
+    class Customer {
+        -string Name
+        -int Time
+        +Customer(string name, int time)
+        +string ToString()
     }
 
     class Queue {
-        - Queue<LaundryQueueItem> queue
-        + void Enqueue(LaundryQueueItem item)
-        + LaundryQueueItem Dequeue()
-        + bool IsEmpty()
-        + LaundryQueueItem Peek()
+        -Queue<Customer> customers
+        +void EnqueueCustomer(Customer customer)
+        +Customer DequeueCustomer()
+        +Queue<Customer> Customers
     }
 
-    LaundryQueueItem --* LaundryQueue
-    LaundryQueueItem "1" --* "3" LaundryMachine : Uses
+    class washing_machine {
+        -string Name
+        -bool Available
+        -Label Status
+        -int Time
+        +washing_machine(string name)
+        +void ServeCustomer(Customer customer)
+        +void SaveResultToCSV(string customerName, string machineName, int clothesCount)
+    }
+
+    class Shop {
+        -Queue<Customer> CustomersQueue
+        -List<washing_machine> Machines
+        -string Name
+        -List<washing_machine> machines
+        +void AddMachine(washing_machine machine)
+        +washing_machine GetAvailableMachine()
+        +void ClearStatusOfMachines()
+        +void ClearStatusOfMachine(string machineName)
+    }
+
+    class ResultDATA {
+        -string CustomerName
+        -int Time
+    }
+
+    Form1 --> Shop
+    Form1 --> Queue
+    Form1 --> Customer
+    Form1 --> washing_machine
+    Shop --> Queue
+    Shop --> washing_machine
+    washing_machine --> Customer
+    washing_machine --> ResultDATA
 ```
 ข้อเสนอแนะ
 โครงการนี้เป็นโครงการเบื้องต้นในการจัดทำเพื่อแก้ปัญหาในเรื่องของการใช้เวลาในการจองคิวเครื่องซักผ้าโดยเน้นในระบบร้านสะดวกซักขนาดเล็กอย่างเช่นที่มีอยู่ในที่มีบริการอยู่ในแถวหอพักมหาลัยขอนแก่นวิทยาเขตหนองคายเท่านั้นแต่ใน 

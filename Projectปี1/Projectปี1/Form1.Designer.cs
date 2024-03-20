@@ -62,7 +62,6 @@
             clear4 = new Button();
             clear5 = new Button();
             clear6 = new Button();
-            ReadCsv = new Button();
             ((System.ComponentModel.ISupportInitialize)time_numericUpDown).BeginInit();
             SuspendLayout();
             // 
@@ -314,9 +313,11 @@
             // 
             time_numericUpDown.Location = new Point(601, 458);
             time_numericUpDown.Maximum = new decimal(new int[] { 30, 0, 0, 0 });
+            time_numericUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             time_numericUpDown.Name = "time_numericUpDown";
             time_numericUpDown.Size = new Size(73, 23);
             time_numericUpDown.TabIndex = 35;
+            time_numericUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // เวลาที่จะเข้ามาซักผ้า
             // 
@@ -329,11 +330,11 @@
             // 
             // Clear
             // 
-            Clear.Location = new Point(1167, 550);
+            Clear.Location = new Point(1161, 539);
             Clear.Name = "Clear";
             Clear.Size = new Size(76, 79);
             Clear.TabIndex = 37;
-            Clear.Text = "button1";
+            Clear.Text = "Clear";
             Clear.UseVisualStyleBackColor = true;
             Clear.Click += Clear_Click;
             // 
@@ -397,22 +398,11 @@
             clear6.UseVisualStyleBackColor = true;
             clear6.Click += clear6_Click;
             // 
-            // ReadCsv
-            // 
-            ReadCsv.Location = new Point(987, 458);
-            ReadCsv.Name = "ReadCsv";
-            ReadCsv.Size = new Size(112, 52);
-            ReadCsv.TabIndex = 44;
-            ReadCsv.Text = "Read Csv";
-            ReadCsv.UseVisualStyleBackColor = true;
-            ReadCsv.Click += ReadCsv_Click;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1268, 641);
-            Controls.Add(ReadCsv);
             Controls.Add(clear6);
             Controls.Add(clear5);
             Controls.Add(clear4);
@@ -492,6 +482,5 @@
         private Button clear4;
         private Button clear5;
         private Button clear6;
-        private Button ReadCsv;
     }
 }

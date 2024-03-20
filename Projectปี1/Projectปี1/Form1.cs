@@ -26,12 +26,14 @@ namespace Projectปี1
 
         private void เพิ่มลูกค้า_Click(object sender, EventArgs e)
         {
-            string name = ชื่อลูกค้า.Text;
 
+            string name = ชื่อลูกค้า.Text;
             int Time = (int)time_numericUpDown.Value;
             Customer newCustomer = new Customer(name, Time);
             Queue.EnqueueCustomer(newCustomer);
             UpdateQueueListBox();
+            ExportQueueToCsv();
+            ชื่อลูกค้า.Text = "";
         }
         private void UpdateQueueListBox()
         {
@@ -103,7 +105,7 @@ namespace Projectปี1
 
         private void Clear_Click(object sender, EventArgs e)
         {
-            ExportQueueToCsv();
+            
             Queue.Customers.Clear();
             UpdateQueueListBox();
             Shop.ClearStatusOfMachines();
@@ -137,24 +139,6 @@ namespace Projectปี1
         private void clear6_Click(object sender, EventArgs e)
         {
             Shop.ClearStatusOfMachine("Machine 6");
-        }
-
-        private void ReadCsv_Click(object sender, EventArgs e)
-        {
-          
-        
-            using (var reader = new StreamReader(@"C:\Users\User\source\repos\Project1\Projectปี1\Projectปี1\bin\Debug\net8.0-windows"))
-            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
-            {
-                var records = csv.GetRecords<ResultDATA>().ToList();
-               
-            }
-        
-        }
-        
-        private void SaveCsv_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void ExportQueueToCsv()

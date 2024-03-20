@@ -34,6 +34,7 @@
 
 4.มีการอ่านและบันทึกข้อมูลลงบนไฟล์ (.CSV) (5 คะแนน)
 :ชื่อไฟล์customers_queue
+ตำแหน่งไฟล์ source\repos\Project1\Projectปี1\Projectปี1\bin\Debug\net8.0-windows
 classdiagram:
 
 ```mermaid

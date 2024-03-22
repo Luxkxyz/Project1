@@ -47,17 +47,17 @@ classDiagram
         +UpdateQueueListBox
         +addwashing_machine()
         +next_customer_Click
-        +Clear_Click
-        +clear2_Click
-        +clear1_Click
-        +clear3_Click
-        +clear4_Click
-        +clear5_Click
-        +clear6_Click
-        +ReadCsv_Click
-        +SaveCsv_Click
-        +ExportQueueToCsv
-        +Form1_Load
+        +Clear_Click()
+        +clear2_Click()
+        +clear1_Click()
+        +clear3_Click()
+        +clear4_Click()
+        +clear5_Click()
+        +clear6_Click()
+        +ReadCsv_Click()
+        +SaveCsv_Click()
+        +ExportQueueToCsv()
+        +Form1_Load()
     }
 
     class Customer {

@@ -43,21 +43,21 @@ classDiagram
         -Shop Shop
         -Queue Queue
         -Label empty
-        +void เพิ่มลูกค้า_Click(object sender, EventArgs e)
-        +void UpdateQueueListBox()
-        +void addwashing_machine()
-        +void next_customer_Click(object sender, EventArgs e)
-        +void Clear_Click(object sender, EventArgs e)
-        +void clear2_Click(object sender, EventArgs e)
-        +void clear1_Click(object sender, EventArgs e)
-        +void clear3_Click(object sender, EventArgs e)
-        +void clear4_Click(object sender, EventArgs e)
-        +void clear5_Click(object sender, EventArgs e)
-        +void clear6_Click(object sender, EventArgs e)
-        +void ReadCsv_Click(object sender, EventArgs e)
-        +void SaveCsv_Click(object sender, EventArgs e)
-        +void ExportQueueToCsv()
-        +void Form1_Load(object sender, EventArgs e)
+        +เพิ่มลูกค้า_Click
+        +UpdateQueueListBox
+        +addwashing_machine
+        +next_customer_Click
+        +Clear_Click
+        +clear2_Click
+        +clear1_Click
+        +clear3_Click
+        +clear4_Click
+        +clear5_Click
+        +clear6_Click
+        +ReadCsv_Click
+        +SaveCsv_Click
+        +ExportQueueToCsv
+        +Form1_Load
     }
 
     class Customer {
@@ -69,7 +69,7 @@ classDiagram
 
     class Queue {
         -Queue<Customer> customers
-        +void EnqueueCustomer(Customer customer)
+        +EnqueueCustomer(Customer customer)
         +Customer DequeueCustomer()
         +Queue<Customer> Customers
     }
@@ -80,8 +80,8 @@ classDiagram
         -Label Status
         -int Time
         +washing_machine(string name)
-        +void ServeCustomer(Customer customer)
-        +void SaveResultToCSV(string customerName, string machineName, int clothesCount)
+        +ServeCustomer(Customer customer)
+        +SaveResultToCSV(string customerName, string machineName, int clothesCount)
     }
 
     class Shop {
@@ -89,10 +89,10 @@ classDiagram
         -List<washing_machine> Machines
         -string Name
         -List<washing_machine> machines
-        +void AddMachine(washing_machine machine)
+        +AddMachine(washing_machine machine)
         +washing_machine GetAvailableMachine()
-        +void ClearStatusOfMachines()
-        +void ClearStatusOfMachine(string machineName)
+        +ClearStatusOfMachines()
+        +ClearStatusOfMachine(string machineName)
     }
 
     class ResultDATA {

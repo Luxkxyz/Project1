@@ -95,9 +95,7 @@ classDiagram
         +ClearStatusOfMachine(string machineName)
     }
 
-    class ResultDATA {
-        -string CustomerName
-        -int Time
+
     }
 
     Form1 --> Shop

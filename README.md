@@ -107,7 +107,7 @@ classDiagram
     Shop --> Queue
     Shop --> washing_machine
     washing_machine --> Customer
-    washing_machine --> ResultDATA
+    
 ```
 5.ชื่อของผู้พัฒนาโปรแกรม
 

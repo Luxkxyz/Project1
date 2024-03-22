@@ -43,10 +43,10 @@ classDiagram
         -Shop Shop
         -Queue Queue
         -Label empty
-        +เพิ่มลูกค้า_Click
+        +เพิ่มลูกค้า_Click()
         +UpdateQueueListBox
         +addwashing_machine()
-        +next_customer_Click
+        +next_customer_Click()
         +Clear_Click()
         +clear2_Click()
         +clear1_Click()

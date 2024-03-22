@@ -45,7 +45,7 @@ classDiagram
         -Label empty
         +เพิ่มลูกค้า_Click
         +UpdateQueueListBox
-        +addwashing_machine
+        +addwashing_machine()
         +next_customer_Click
         +Clear_Click
         +clear2_Click

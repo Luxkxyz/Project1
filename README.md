@@ -73,7 +73,7 @@ classDiagram
         -Queue<Customer> customers
         +EnqueueCustomer(Customer customer)
         +Customer DequeueCustomer()
-        +Queue<Customer> Customers
+        +Queue<Customer> Customers()
     }
 
     class washing_machine {
